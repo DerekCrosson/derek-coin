@@ -21,7 +21,7 @@ describe("DerekCoin", function () {
     console.log("success!");
   });
 
-  it("Should deploy with 1m of supply for the owner of the contract", async function() {
+  it("Should deploy with 10 tokens for the owner of the contract", async function() {
     const balance = await derekCoinToken.balanceOf(owner.address);
     expect(ethers.utils.formatEther(balance) == 10);
   });
