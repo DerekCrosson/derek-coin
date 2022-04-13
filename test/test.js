@@ -27,14 +27,7 @@ describe("DerekCoin", function () {
   });
 
   it("Should let you send tokens to another address", async function() {
-    await derekCoinToken.transfer(address1.address, ethers.utils.parseEther("100"));
-    expect(await derekCoinToken.balanceOf(address1.address)).to.equal(ethers.utils.parseEther("100"));
+    await derekCoinToken.transfer(address1.address, ethers.utils.parseEther("1"));
+    expect(await derekCoinToken.balanceOf(address1.address)).to.equal(ethers.utils.parseEther("1"));
   });
-
-  it("Should let you give another address the approval to send on your behalf", async function() {
-    await derekCoinToken.connect(address1).approve(owner.address, ethers.utils.parseEther("1000"));
-    await derekCoinToken.transfer(address1.address, ethers.utils.parseEther("1000"));
-    await derekCoinToken.transferFrom(address1.address, address2.address, ethers.utils.parseEther("1000"));
-    expect(await derekCoinToken.balanceOf(address2.address)).to.equal(ethers.utils.parseEther("1000"));
-  })
 });
